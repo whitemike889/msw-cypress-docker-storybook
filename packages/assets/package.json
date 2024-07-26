@@ -1,0 +1,17 @@
+{
+  "name": "@aislinn/assets",
+  "version": "0.0.1",
+  "description": "A package with static asset files",
+  "license": "ISC",
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/index",
+  "types": "./dist/index",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "clean": "rimraf build dist"
+  }
+}

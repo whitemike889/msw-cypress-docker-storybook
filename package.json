@@ -1,0 +1,57 @@
+{
+  "name": "test-repo",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "nx run-many --target=build --exclude=test-repo,@aislinn/storybook && nx run @aislinn/storybook:build",
+    "clean": "nx run-many --target=clean --exclude=test-repo && nx reset",
+    "nuke": "git clean -xdf; yarn",
+    "storybook": "nx run-many --target=build --exclude=@aislinn/storybook,test-repo && nx run @aislinn/storybook:storybook",
+    "test:visual": "./scripts/runVisualRegression.sh",
+    "update:visual": "IS_UPDATE=true ./scripts/runVisualRegression.sh"
+  },
+  "resolutions": {
+    "@emotion/react": "11.11.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.24.9",
+    "@emotion/babel-plugin": "11.12.0",
+    "@storybook/blocks": "8.2.5",
+    "@storybook/react": "8.2.5",
+    "@types/node": "18.17.1",
+    "@types/react": "18.2.37",
+    "@types/react-dom": "18.2.15",
+    "@vitejs/plugin-react": "4.3.1",
+    "cypress": "13.13.1",
+    "cypress-multi-reporters": "1.6.4",
+    "fast-glob": "3.3.2",
+    "mocha-junit-reporter": "2.2.1",
+    "msw": "2.3.2",
+    "npm-run-all": "4.1.5",
+    "nx": "19.5.1",
+    "rimraf": "5.0.9",
+    "rollup-plugin-visualizer": "5.12.0",
+    "sort-package-json": "2.10.0",
+    "typescript": "5.5.3",
+    "vite": "5.3.4",
+    "vite-plugin-checker": "0.7.2",
+    "vite-plugin-dts": "3.9.1",
+    "vite-plugin-static-copy": "1.0.6",
+    "vite-plugin-svgr": "4.2.0",
+    "vitest": "1.6.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "msw": {
+    "workerDirectory": "packages/storybook/.storybook/static"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+
+  "compilerOptions": {
+    // Don't emit files when compiling test code
+    "noEmit": true,
+
+    // Global types that should only be available to test code
+    "types": ["vitest/globals", "vite/client", "node"],
+
+    // We put this file in the build directory so that we can .gitignore it and also not include it in the built asset of `dist`
+    "tsBuildInfoFile": "./build/tsconfig.test.tsbuildinfo"
+  },
+
+  // Includes only test and test helper files
+  "include": ["test", "src/**/__fixtures__", "src/**/*.test.*", "src/**/*.stories.*"],
+  "exclude": []
+}

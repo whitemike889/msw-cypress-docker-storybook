@@ -1,0 +1,26 @@
+{
+  "name": "@aislinn/storybook",
+  "version": "0.0.1",
+  "license": "ISC",
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "build": "./setStorybookOriginAndBuild.sh",
+    "build-storybook": "storybook build -o ../../storybook-static",
+    "clean": "rimraf ../../storybook-static",
+    "storybook": "storybook dev -p 6006"
+  },
+  "dependencies": {
+    "@simonsmith/cypress-image-snapshot": "9.1.0",
+    "@storybook/addon-a11y": "8.2.5",
+    "@storybook/addon-essentials": "8.2.5",
+    "@storybook/addon-viewport": "8.2.5",
+    "@storybook/react-vite": "8.2.5",
+    "@testing-library/cypress": "10.0.2",
+    "cypress": "13.13.1",
+    "msw": "2.3.2",
+    "msw-storybook-addon": "2.0.3",
+    "react": "18.2.0",
+    "storybook": "8.2.5"
+  }
+}

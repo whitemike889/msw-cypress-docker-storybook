@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      // This points eslint to the source code instead of compiled code when importing from a package that lives in the monorepo
+      // This is required for the import/no-unused-modules rule to correctly detect when an import is used from another project in the monorepo
+      "@aislinn/*": ["packages/*/src"]
+    }
+  },
+  // Only include files that lint should run against
+  "include": [
+    "apps",
+    "packages",
+
+    // This matches any .ts file that lives directly in the root directory of the monorepo
+    "*.ts"
+  ],
+  "exclude": ["node_modules", "dist", "build"]
+}

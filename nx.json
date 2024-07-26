@@ -1,0 +1,58 @@
+{
+  "cli": {
+    "packageManager": "yarn"
+  },
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build"
+        ]
+      }
+    }
+  },
+  "namedInputs": {
+    "sharedGlobals": [
+      "{workspaceRoot}/vite.config.ts"
+    ],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "production": [
+      "default",
+      "!{projectRoot}/.storybook/**/*",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
+      "!{projectRoot}/vitest.config.ts",
+      "!{projectRoot}/vitest.config.mts",
+      "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx)",
+      "!{projectRoot}/.storybook/*.@(mdx)",
+      "!{projectRoot}/test/setupTests.[jt]s",
+      "!{projectRoot}/**/__fixtures__/*.[jt]s"
+    ]
+  },
+  "targetDefaults": {
+    "build": {
+      "inputs": [
+        "production",
+        "^production"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "storybook": {
+      "inputs": [
+        "default",
+        "production",
+        "^production"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    }
+  },
+  "useInferencePlugins": false
+}

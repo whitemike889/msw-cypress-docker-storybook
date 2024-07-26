@@ -1,0 +1,14 @@
+{
+  // Extends the configuration from the monorepo root tsconfig
+  "extends": "../../tsconfig.vite.json",
+
+  "compilerOptions": {
+    // only include non-test global types
+    "types": ["vite-plugin-svgr/client", "vite/client"],
+
+    // We put this file in the build directory so that we can .gitignore it and also not include it in the built asset of `dist`
+    "tsBuildInfoFile": "./build/tsconfig.build.tsbuildinfo"
+  },
+
+  "include": ["src"]
+}

@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+
+  "compilerOptions": {
+    // only include non-test global types
+    "types": ["vite/client"],
+
+    // We put this file in the build directory so that we can .gitignore it and also not include it in the built asset of `dist`
+    "tsBuildInfoFile": "./build/tsconfig.build.tsbuildinfo"
+  },
+
+  // This is the config file used to build the application, and should exclude test code
+  "include": ["src"],
+  "exclude": ["test", "src/**/__fixtures__", "src/**/*.test.*", "src/**/*.stories.*"]
+}

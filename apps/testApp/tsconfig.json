@@ -1,0 +1,11 @@
+{
+  // Extends the shared vite app configuration
+  "extends": "../../tsconfig.vite.json",
+
+  // Don't include any files directly in this base config.
+  // Relevant files will be included in the build or test configs
+  "include": [],
+
+  // This allows VSCode to use different tsconfigs for this project, depending on whether they are app or test files
+  "references": [{"path": "./tsconfig.build.json"}, {"path": "./tsconfig.test.json"}]
+}

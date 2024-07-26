@@ -1,0 +1,15 @@
+{
+  "name": "test-app",
+  "version": "0.0.1",
+  "private": true,
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "clean": "rimraf build dist"
+  },
+  "dependencies": {
+    "@aislinn/assets": "*",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}

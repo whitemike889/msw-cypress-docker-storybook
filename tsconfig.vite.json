@@ -1,0 +1,29 @@
+{
+  // Base tsconfig for vite based apps
+  // Extends the configuration from the monorepo root tsconfig
+  "extends": "./tsconfig.base.json",
+
+  "compilerOptions": {
+    // don't emit files directly via tsc, as vite will handle that
+    // allows tsc to be used for type checking only
+    "noEmit": true,
+
+    // Generates corresponding .d.ts files for .ts files
+    "declaration": true,
+
+    // Generates source maps for .d.ts files
+    "declarationMap": true,
+
+    // Allows import of json file as module
+    "resolveJsonModule": true,
+
+    // Generates source maps for the JavaScript output files
+    "sourceMap": true,
+
+    // Specify the root path for debuggers to find the reference source code.
+    "sourceRoot": "..",
+
+    // Save .tsbuildinfo files to allow for incremental compilation of projects.
+    "incremental": true
+  }
+}
