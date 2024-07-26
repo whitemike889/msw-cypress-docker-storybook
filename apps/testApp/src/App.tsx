@@ -6,7 +6,7 @@ export const App = () => {
   return (
     <>
       <div>
-        <img src={"/mockThisUrl"} alt="Mocked image" />
+        <img src={"/mockThisUrl"} alt="Mocked image" height={100} width={200} />
       </div>
       <div>
         <button onClick={() => setCount((count) => count + 1)}>

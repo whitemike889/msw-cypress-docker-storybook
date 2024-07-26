@@ -97,5 +97,11 @@ if [[ -z "$IS_PIPELINE" ]]; then
   fi
 fi
 
-# Running visual regression tests and exiting docker on receiving the exit code from cypress
-docker compose up --renew-anon-volumes --exit-code-from cypress
+# Check if we want to open up the Cypress test runner from the Docker image
+if [[ ! -z "${IP}" ]]; then
+  echo "Running visual tests in debug mode..."
+  docker-compose -f docker-compose.yml -f cy-open.yml up --renew-anon-volumes --exit-code-from cypress
+else
+  # Running visual regression tests and exiting docker on receiving the exit code from cypress
+  docker compose up --renew-anon-volumes --exit-code-from cypress
+fi
