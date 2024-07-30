@@ -11,6 +11,9 @@ export default defineConfig({
     // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
     setupNodeEvents(on) {
       on('before:browser:launch', (browser, launchOptions) => {
+        if (browser.name === 'chrome' && browser.isHeadless) {
+          launchOptions.args.push('--window-size=1600,1200');
+        }
         if (browser.name === 'electron' && browser.isHeadless) {
           // The maximum fullPage screenshot size can be 1600x1200.
           // We set this so that when we use "bigger" devices, we can capture the full screenshot as needed.

@@ -33,3 +33,4 @@ services:
       - CYPRESS_updateSnapshots=${IS_UPDATE}
     depends_on:
       - storybook
+    command: npx cypress run --browser chrome
